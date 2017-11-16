@@ -155,23 +155,24 @@ class HomeScreen extends Component {
     return (
       <View>
         <StatusBar backgroundColor="#546E7A" hidden={false} />
-        <View style={{ paddingTop: 8 }}>
-          <FlatList
-            data={data}
-            ItemSeparatorComponent={() => (
-              <View style={{ height: 1, backgroundColor: 'black', opacity: 0.12 }} />
-            )}
-            renderItem={itemInfo => (
-              <TouchableNativeFeedback>
-                <View style={{padding: 16}}>
-                  <Text style={{fontSize: 16, color: 'black', opacity: 0.87 }}>{itemInfo.item.title}</Text>
-                  <Text style={{fontSize: 14, color: 'black', opacity: 0.54 }}>{itemInfo.item.description}</Text>
-                </View>
-              </TouchableNativeFeedback>
-            )}
-            keyExtractor={(item, index) => index}
-          />
-        </View>
+        <FlatList
+          data={data}
+          ListHeaderComponent={() => (
+            <View style={{ height: 8 }} />
+          )}
+          ItemSeparatorComponent={() => (
+            <View style={{ height: 1, backgroundColor: 'black', opacity: 0.12 }} />
+          )}
+          renderItem={itemInfo => (
+            <TouchableNativeFeedback>
+              <View style={{padding: 16}}>
+                <Text style={{fontSize: 16, color: 'black', opacity: 0.87 }}>{itemInfo.item.title}</Text>
+                <Text style={{fontSize: 14, color: 'black', opacity: 0.54 }}>{itemInfo.item.description}</Text>
+              </View>
+            </TouchableNativeFeedback>
+          )}
+          keyExtractor={(item, index) => index}
+        />
       </View>
     )
   }
